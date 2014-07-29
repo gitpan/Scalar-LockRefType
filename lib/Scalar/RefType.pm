@@ -3,11 +3,17 @@ use strict;
 use warnings;
 use Carp;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 sub TIESCALAR {
     my ($class, $type) = @_;
-    return bless { value => undef, type => ref $type ? ref $type : $type // '' };
+    return bless {
+        value => undef,
+        type  => @_ < 2 ? undef
+        : ref($type)    ? ref($type)
+        : length($type) ? $type
+        :                 ''
+    };
 }
 
 sub FETCH { return $_[0]->{value} }
@@ -15,9 +21,8 @@ sub FETCH { return $_[0]->{value} }
 sub STORE {
     my ($self, $value) = @_;
     my $ref = ref $value // '';
-    if ($ref ne $self->{type}) {
-	croak 'invalid reference type';
-    }
+    $self->{type} //= $ref;
+    croak 'invalid reference type' if $ref ne $self->{type};
     return $self->{value} = $value;
 }
 
@@ -33,14 +38,18 @@ __END__
 
  tie my $h1 => 'Scalar::RefType', {};
  tie my $h2 => 'Scalar::RefType', 'HASH';
+ tie my $h3 => 'Scalar::RefType';
 
- # dies:
- $h1 = [];
+ $h1 = [];  # dies, violates the type
+ $h2 = [];  # dies, violates the type
+
+ $h3 = {};  # sets the type
+ $h3 = [];  # dies
 
 =head1 DESCRIPTION
 
 This little module allows you to tie the type of a scalar to a specified
-reference type. If the refererence type of an assignment violetes the 
+reference type. If the refererence type of an assignment violates the 
 tied type, the assignment throws an exception.
 
 =head1 AUTHOR

@@ -16,7 +16,7 @@ name: Scalar-RefType
 provides:
   Scalar::RefType:
     file: lib/Scalar/RefType.pm
-    version: 0.01
+    version: 0.02
 requires:
   perl: 5.0
-version: 0.01
+version: 0.02
