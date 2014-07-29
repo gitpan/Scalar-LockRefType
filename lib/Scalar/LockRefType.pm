@@ -1,4 +1,4 @@
-package Scalar::RefType;
+package Scalar::LockRefType;
 use strict;
 use warnings;
 use Carp;
@@ -30,15 +30,15 @@ __END__
 
 =head1 NAME
 
- Scalar::RefType - simple scalar type checker
+ Scalar::LockRefType - simple scalar type checker
 
 =head1 SYNOPSIS
 
- use Scalar::RefType;
+ use Scalar::LockRefType;
 
- tie my $h1 => 'Scalar::RefType', {};
- tie my $h2 => 'Scalar::RefType', 'HASH';
- tie my $h3 => 'Scalar::RefType';
+ tie my $h1 => 'Scalar::LockRefType', {};
+ tie my $h2 => 'Scalar::LockRefType', 'HASH';
+ tie my $h3 => 'Scalar::LockRefType';
 
  $h1 = [];  # dies, violates the type
  $h2 = [];  # dies, violates the type

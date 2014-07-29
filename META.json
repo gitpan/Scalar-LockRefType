@@ -12,7 +12,7 @@
       "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
       "version" : "2"
    },
-   "name" : "Scalar-RefType",
+   "name" : "Scalar-LockRefType",
    "prereqs" : {
       "build" : {
          "requires" : {
@@ -31,8 +31,8 @@
       }
    },
    "provides" : {
-      "Scalar::RefType" : {
-         "file" : "lib/Scalar/RefType.pm",
+      "Scalar::LockRefType" : {
+         "file" : "lib/Scalar/LockRefType.pm",
          "version" : "0.02"
       }
    },

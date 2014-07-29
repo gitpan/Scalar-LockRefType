@@ -2,9 +2,9 @@
 use Module::Build;
 
 Module::Build->new(
-    module_name => 'Scalar::RefType',
+    module_name => 'Scalar::LockRefType',
     dist_abstract => 'simple scalar ref type checker',
-    version_from => 'lib/Scalar/RefType.pm',
+    version_from => 'lib/Scalar/LockRefType.pm',
     build_requires => {
 	Test::Exception => 0,
     },
