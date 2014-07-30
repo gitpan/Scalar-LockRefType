@@ -1,9 +1,11 @@
 package Scalar::LockRefType;
+
+use 5.010;
 use strict;
 use warnings;
 use Carp;
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 sub TIESCALAR {
     my ($class, $type) = @_;

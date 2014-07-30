@@ -3,7 +3,7 @@ abstract: 'simple scalar ref type checker'
 author:
   - unknown
 build_requires:
-  Test::Exception: 0
+  Test::Exception: 0.32
 configure_requires:
   Module::Build: 0.40
 dynamic_config: 1
@@ -16,7 +16,7 @@ name: Scalar-LockRefType
 provides:
   Scalar::LockRefType:
     file: lib/Scalar/LockRefType.pm
-    version: 0.02
+    version: 0.03
 requires:
-  perl: 5.0
-version: 0.02
+  perl: 5.010
+version: 0.03

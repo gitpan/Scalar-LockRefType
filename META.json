@@ -16,7 +16,7 @@
    "prereqs" : {
       "build" : {
          "requires" : {
-            "Test::Exception" : "0"
+            "Test::Exception" : "0.32"
          }
       },
       "configure" : {
@@ -26,16 +26,16 @@
       },
       "runtime" : {
          "requires" : {
-            "perl" : "5.0"
+            "perl" : "5.010"
          }
       }
    },
    "provides" : {
       "Scalar::LockRefType" : {
          "file" : "lib/Scalar/LockRefType.pm",
-         "version" : "0.02"
+         "version" : "0.03"
       }
    },
    "release_status" : "stable",
-   "version" : "0.02"
+   "version" : "0.03"
 }
